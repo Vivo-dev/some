@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Sample book data
+const books = [
+  {
+    title: "Gödel, Escher, Bach",
+    author: "Douglas Hofstadter",
+    category: "Philosophy",
+    description: "An exploration of the common themes in the lives and works of logician Kurt Gödel, artist M. C. Escher, and composer Johann Sebastian Bach, discussing concepts fundamental to mathematics, symmetry, and intelligence."
+  },
+  {
+    title: "Sapiens",
+    author: "Yuval Noah Harari",
+    category: "Science",
+    description: "A brief history of humankind, exploring the evolution of humans from the Stone Age to the twenty-first century, examining how biology and history have defined us and enhanced our understanding of what it means to be 'human'."
+  },
+  {
+    title: "The Left Hand of Darkness",
+    author: "Ursula K. Le Guin",
+    category: "Fiction",
+    description: "A science fiction novel that follows the story of Genly Ai, a human envoy to the planet of Winter, whose inhabitants are ambisexual, exploring themes of gender, politics, and interpersonal relationships."
+  },
+  {
+    title: "The Pattern on the Stone",
+    author: "W. Daniel Hillis",
+    category: "Technology",
+    description: "An accessible explanation of how computers work, from the basic principles of computation to complex concepts like neural networks and self-modifying programs."
+  },
+  {
+    title: "The Society of Mind",
+    author: "Marvin Minsky",
+    category: "Philosophy",
+    description: "A comprehensive book that proposes a theory of mind as a society of tiny components that are themselves mindless, exploring how intelligence could be a product of the interaction of non-intelligent parts."
+  },
+  {
+    title: "The Selfish Gene",
+    author: "Richard Dawkins",
+    category: "Science",
+    description: "An influential book that advocates a gene-centered view of evolution, arguing that genes use organisms as survival machines, revolutionizing how we understand natural selection."
+  },
+  {
+    title: "Neuromancer",
+    author: "William Gibson",
+    category: "Fiction",
+    description: "A groundbreaking cyberpunk novel that presents a dystopian future where humans interface directly with computer networks in a virtual reality called the matrix."
+  },
+  {
+    title: "Code",
+    author: "Charles Petzold",
+    category: "Technology",
+    description: "An exploration of how computers work at the most fundamental level, from simple electronic circuits to the development of programming languages, operating systems, and more."
+  }
+];
+
+// Group books by category
+const booksByCategory = books.reduce((acc, book) => {
+  if (!acc[book.category]) {
+    acc[book.category] = [];
+  }
+  acc[book.category].push(book);
+  return acc;
+}, {});
+---
+
+<Layout title="Books - adam dhalla">
+  <section class="section books">
+    <div class="container">
+      <h1>Books</h1>
+      <p class="intro">
+        A curated list of books that have influenced me and that I recommend. Click on a book to read a short description.
+      </p>
+      
+      {Object.entries(booksByCategory).map(([category, categoryBooks]) => (
+        <div class="category-section">
+          <h2>{category}</h2>
+          <div class="books-grid">
+            {categoryBooks.map((book) => (
+              <div class="book-card">
+                <div class="book-card-front">
+                  <h3>{book.title}</h3>
+                  <p class="book-author">by {book.author}</p>
+                </div>
+                <div class="book-card-back">
+                  <p>{book.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .books h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  .intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .category-section {
+    margin-bottom: var(--space-xl);
+  }
+
+  .category-section h2 {
+    margin-bottom: var(--space-md);
+    position: relative;
+    display: inline-block;
+  }
+
+  .category-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent);
+  }
+
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .book-card {
+    position: relative;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+
+  .book-card-front,
+  .book-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+    border-radius: 8px;
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .book-card-front {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    transform: rotateY(0deg);
+    z-index: 2;
+  }
+
+  .book-card-back {
+    background-color: var(--color-accent);
+    color: white;
+    transform: rotateY(180deg);
+    overflow-y: auto;
+    padding: var(--space-md);
+  }
+
+  .book-card:hover .book-card-front {
+    transform: rotateY(180deg);
+  }
+
+  .book-card:hover .book-card-back {
+    transform: rotateY(0deg);
+  }
+
+  .book-card h3 {
+    margin-bottom: var(--space-xs);
+    font-size: 1.3rem;
+  }
+
+  .book-author {
+    color: var(--color-text-light);
+    font-style: italic;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .books-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+  }
+
+  @media (max-width: 480px) {
+    .books-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

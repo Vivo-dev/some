@@ -1,0 +1,157 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="2001: A Space Odyssey - adam dhalla">
+  <article class="film-review">
+    <div class="container">
+      <div class="film-header">
+        <div class="film-poster">
+          <img src="https://i.pinimg.com/736x/41/32/eb/4132ebe88b07c507ca5b0472ddd93054.jpg" alt="2001: A Space Odyssey poster" />
+        </div>
+        <div class="film-info">
+          <h1>2001: A Space Odyssey</h1>
+          <div class="film-meta">
+            <p><strong>Director:</strong> Stanley Kubrick</p>
+            <p><strong>Year:</strong> 1968</p>
+            <p><strong>Runtime:</strong> 149 minutes</p>
+            <div class="film-rating">
+              <span class="rating-value">5.0</span>
+              <span class="rating-max">/5.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="film-content">
+        <p>
+          Stanley Kubrick's "2001: A Space Odyssey" stands as one of the most visually stunning and philosophically ambitious films ever made. Released in 1968, it remains a landmark achievement in cinema, pushing the boundaries of visual effects, narrative structure, and thematic depth.
+        </p>
+
+        <h2>Visual Language and Technical Innovation</h2>
+        <p>
+          What immediately strikes viewers of "2001" is Kubrick's meticulous attention to visual detail. The film's special effects were revolutionary for its time and still hold up remarkably well today. The space sequences, featuring accurately depicted physics in zero gravity, were achieved through a combination of models, front projection techniques, and innovative camera work.
+        </p>
+        <p>
+          The film's deliberate pacing and minimal dialogue force the audience to engage with it on a purely visual level. Kubrick uses the widescreen format to its full potential, creating compositions that emphasize the vastness of space and the isolation of human existence within it.
+        </p>
+
+        <h2>Evolution and Technology</h2>
+        <p>
+          At its core, "2001" is a meditation on human evolution and our relationship with technology. The film's structure—divided into distinct sections spanning millions of years—tracks humanity's development from tool-using apes to space-faring explorers and ultimately to something beyond human.
+        </p>
+        <p>
+          The character of HAL 9000, the sentient computer, raises profound questions about artificial intelligence and consciousness that were prescient in 1968 and remain relevant today. HAL's emotional breakdown and subsequent "death" sequence is one of cinema's most poignant portrayals of an artificial being.
+        </p>
+
+        <h2>The Transcendent Final Act</h2>
+        <p>
+          The film's enigmatic "Jupiter and Beyond the Infinite" sequence remains one of the most discussed and analyzed sections in film history. The psychedelic stargate sequence, followed by the sterile white room and the transformation of astronaut David Bowman into the "Star Child," resists easy interpretation.
+        </p>
+        <p>
+          What makes "2001" so enduring is its refusal to provide easy answers. It invites—even demands—multiple viewings and interpretations, functioning more like a visual poem than a conventional narrative film.
+        </p>
+
+        <h2>Conclusion</h2>
+        <p>
+          More than five decades after its release, "2001: A Space Odyssey" continues to stand as a monumental achievement in cinema. Its influence can be seen in countless science fiction films that followed, from "Alien" to "Interstellar." Yet few films have matched its ambition, technical precision, or philosophical depth.
+        </p>
+        <p>
+          For those willing to surrender to its deliberate pacing and abstract storytelling, "2001" offers an unparalleled cinematic experience that continues to provoke thought and awe with each viewing.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .film-review {
+    padding: var(--space-xl) 0;
+  }
+
+  .film-review .container {
+    max-width: 900px;
+  }
+
+  .film-header {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .film-poster {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .film-poster img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .film-info h1 {
+    margin-bottom: var(--space-md);
+    font-size: 2.5rem;
+  }
+
+  .film-meta {
+    font-size: 1.1rem;
+  }
+
+  .film-meta p {
+    margin-bottom: var(--space-xs);
+  }
+
+  .film-rating {
+    margin-top: var(--space-md);
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background-color: var(--color-accent);
+    color: white;
+    border-radius: 4px;
+  }
+
+  .rating-value {
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .film-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .film-content p {
+    margin-bottom: var(--space-md);
+  }
+
+  .film-content h2 {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 900px) {
+    .film-header {
+      grid-template-columns: 1fr;
+    }
+
+    .film-poster {
+      max-width: 300px;
+      margin: 0 auto var(--space-md);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .film-info h1 {
+      font-size: 2rem;
+    }
+
+    .film-content {
+      font-size: 1rem;
+    }
+  }
+</style>

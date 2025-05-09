@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Newsletter - adam dhalla">
+  <section class="section newsletter">
+    <div class="container">
+      <h1>Newsletter</h1>
+      <div class="newsletter-content">
+        <div class="newsletter-info">
+          <p class="lead">
+            Subscribe to my newsletter for updates on my latest writing, film reviews, and explorations at the intersection of technology and nature.
+          </p>
+          <p>
+            Each month, I share:
+          </p>
+          <ul>
+            <li>New essays on technology, philosophy, and cinema</li>
+            <li>Book recommendations with brief reviews</li>
+            <li>Updates on my personal projects and research</li>
+            <li>Interesting links from around the web</li>
+          </ul>
+          <p>
+            No spam, unsubscribe anytime.
+          </p>
+        </div>
+        
+        <div class="newsletter-cta">
+          <div class="newsletter-card">
+            <h2>Join the Conversation</h2>
+            <p>Click below to subscribe to my newsletter on Substack.</p>
+            <a href="https://substack.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Subscribe on Substack</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .newsletter h1 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .newsletter-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .lead {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+  }
+
+  ul {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-md);
+  }
+
+  li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .newsletter-card {
+    background-color: var(--color-card-bg);
+    padding: var(--space-lg);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .newsletter-card h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .newsletter-card p {
+    margin-bottom: var(--space-md);
+  }
+
+  .newsletter-card .btn {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 900px) {
+    .newsletter-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+  }
+</style>

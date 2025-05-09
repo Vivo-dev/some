@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Sample film data
+const films = [
+  {
+    title: "2001: A Space Odyssey",
+    director: "Stanley Kubrick",
+    year: 1968,
+    poster: "https://i.pinimg.com/736x/41/32/eb/4132ebe88b07c507ca5b0472ddd93054.jpg",
+    slug: "2001-space-odyssey"
+  },
+  {
+    title: "The Social Network",
+    director: "David Fincher",
+    year: 2010,
+    poster: "https://i.pinimg.com/736x/f6/88/6b/f6886bccfd42d317acb3c81916d527b9.jpg",
+    slug: "the-social-network"
+  },
+  {
+    title: "Zodiac",
+    director: "David Fincher",
+    year: 2007,
+    poster: "https://i.pinimg.com/736x/25/34/bc/2534bc49cc5e07aa3c9b809befe061c6.jpg",
+    slug: "zodiac"
+  },
+  {
+    title: "Whiplash",
+    director: "Damien Chazelle",
+    year: 2014,
+    poster: "https://i.pinimg.com/736x/d5/3d/cf/d53dcfe9d6a3d7247679a2460820273a.jpg",
+    slug: "whiplash"
+  },
+  {
+    title: "Se7en",
+    director: "David Fincher",
+    year: 1995,
+    poster: "https://i.pinimg.com/736x/b6/2d/c2/b62dc21077b4da540210c6f35fdee65f.jpg",
+    slug: "seven"
+  },
+  {
+    title: "Stalker",
+    director: "Andrei Tarkovsky",
+    year: 1979,
+    poster: "https://i.pinimg.com/736x/04/ad/66/04ad66f6ea5542bcd603945299fc3a63.jpg",
+    slug: "stalker"
+  },
+  {
+    title: "Blade Runner",
+    director: "Ridley Scott",
+    year: 1982,
+    poster: "https://i.pinimg.com/736x/ca/7e/cc/ca7ecc6ee772d74e58ebea9871d8ee1a.jpg",
+    slug: "blade-runner"
+  },
+  {
+    title: "A Bronx Tale",
+    director: "Robert De Niro",
+    year: 1993,
+    poster: "https://i.pinimg.com/736x/de/a3/65/dea3650693d778a6e2d16428f51db6fa.jpg",
+    slug: "bronx-tale"
+  },
+  {
+    title: "Nightcrawler",
+    director: "Dan Gilroy",
+    year: 2014,
+    poster: "https://i.pinimg.com/736x/70/bd/2e/70bd2edb3882dba4b7a91843434298e2.jpg",
+    slug: "nightcrawler"
+  },
+  {
+    title: "The Shining",
+    director: "Stanley Kubrick",
+    year: 1980,
+    poster: "https://i.pinimg.com/736x/d7/17/64/d7176497dc38882f98ea54a002b563f0.jpg",
+    slug: "the-shining"
+  },
+  {
+    title: "Her",
+    director: "Spike Jonze",
+    year: 2013,
+    poster: "https://i.pinimg.com/736x/e5/cb/6a/e5cb6a8b2c315e5d4d0439d190eed94d.jpg",
+    slug: "her"
+  },
+  {
+    title: "Arrival",
+    director: "Denis Villeneuve",
+    year: 2016,
+    poster: "https://i.pinimg.com/736x/a5/7e/0b/a57e0b06b9acfe0fa8c7250b7ef97efe.jpg",
+    slug: "arrival"
+  },
+  {
+    title: "No Country for Old Men",
+    director: "Coel Brothers",
+    year: 2007,
+    poster: "https://i.pinimg.com/736x/f3/cb/2c/f3cb2ca06a37e1ec06fa5e18d4395811.jpg",
+    slug: "no-country-for-old-men"
+  },
+  {
+    title: "There Will Be Blood",
+    director: "Paul Thomas Anderson",
+    year: 2007,
+    poster: "https://i.pinimg.com/736x/7d/4b/e4/7d4be44178cb2a5793b1a24ef0d066ae.jpg",
+    slug: "there-will-be-blood"
+  },
+  {
+    title: "The Martian",
+    director: "Ridley Scott",
+    year: 2015,
+    poster: "https://i.pinimg.com/736x/e0/49/8e/e0498e92d6537df6433f2190469f0605.jpg",
+    slug: "the-martian"
+  },
+  {
+    title: "The Silence of the Lambs",
+    director: "Jonathan Demme",
+    year: 1991,
+    poster: "https://i.pinimg.com/736x/94/70/9a/94709a9641f252d8410c7b32cdb051f7.jpg",
+    slug: "the-silence-of-the-lambs"
+  }
+];
+---
+
+<Layout title="Cinema - adam dhalla">
+  <section class="section cinema">
+    <div class="container">
+      <h1>Cinema</h1>
+      <p class="intro">
+        Cinema is the ultimate pleasure for those who really understand it.
+      </p>
+      
+      <div class="films-grid">
+        {films.map((film) => (
+          <a href={`/cinema/${film.slug}.html`} class="film-card">
+            <div class="film-poster">
+              <img src={film.poster} alt={`${film.title} poster`} />
+            </div>
+            <div class="film-details">
+              <h3>{film.title}</h3>
+              <p class="film-meta">{film.director}, {film.year}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .cinema h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  .intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .films-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .film-card {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: var(--color-card-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .film-card:hover {
+    transform: translateY(-8px);
+    text-decoration: none;
+  }
+
+  .film-poster {
+    position: relative;
+    padding-top: 150%; /* 2:3 aspect ratio */
+    overflow: hidden;
+  }
+
+  .film-poster img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .film-card:hover .film-poster img {
+    transform: scale(1.05);
+  }
+
+  .film-details {
+    padding: var(--space-sm);
+  }
+
+  .film-details h3 {
+    margin-bottom: var(--space-xs);
+    font-size: 1.2rem;
+  }
+
+  .film-meta {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .films-grid {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+
+    .film-details h3 {
+      font-size: 1rem;
+    }
+  }
+</style>

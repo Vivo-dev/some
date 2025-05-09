@@ -1,0 +1,67 @@
+---
+// Navigation Component
+---
+
+<nav class="nav">
+  <ul class="nav-list">
+    <li class="nav-item"><a href="/books.html">Books</a></li>
+    <li class="nav-item"><a href="/writing/">Writing</a></li>
+    <li class="nav-item"><a href="/about.html">About</a></li>
+    <li class="nav-item"><a href="/cinema.html">Cinema</a></li>
+  </ul>
+</nav>
+
+<style>
+  .nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: var(--space-md);
+  }
+
+  .nav-item a {
+    color: var(--color-text);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-item a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: width 0.2s ease;
+  }
+
+  .nav-item a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .nav-item a:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .nav-list {
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-list {
+      gap: var(--space-xs);
+    }
+  }
+</style>

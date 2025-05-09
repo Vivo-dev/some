@@ -1,0 +1,153 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// You can replace this with actual data fetching in a real implementation
+const articles = [
+  {
+    title: 'How AI Can Learn from Genetics',
+    slug: 'ai-learning-genetics',
+    excerpt: 'Exploring the parallels between machine learning algorithms and genetic evolution.',
+    date: 'June 15, 2025'
+  },
+  {
+    title: 'Cinema as Philosophy',
+    slug: 'cinema-philosophy',
+    excerpt: 'How films can serve as philosophical thought experiments and convey complex ideas.',
+    date: 'May 22, 2025'
+  },
+  {
+    title: 'The Future of Technology',
+    slug: 'future-technology',
+    excerpt: 'Exploring emerging technologies and their potential impact on society.',
+    date: 'April 10, 2025'
+  },
+  {
+    title: 'Nature\'s Algorithms',
+    slug: 'natures-algorithms',
+    excerpt: 'What we can learn from natural systems to improve our technological designs.',
+    date: 'March 5, 2025'
+  },
+  {
+    title: 'The Ethics of AI',
+    slug: 'ethics-of-ai',
+    excerpt: 'Examining the moral implications of artificial intelligence and machine learning.',
+    date: 'February 18, 2025'
+  }
+];
+---
+
+<Layout title="Writing - adam dhalla">
+  <section class="section writing">
+    <div class="container">
+      <h1>Writing</h1>
+      <p class="intro">
+        I write about cinema, technology, philosophy, science, and more. Here are a few of my recent favorite articles. For all my writing, visit my <a href="https://medium.com/@vsinghr21191" target="_blank">Medium</a>
+      </p>
+      
+      <div class="articles-list">
+        {articles.map((article) => (
+          <a href={`/writing/${article.slug}`} class="article-item">
+            <div class="article-content">
+              <h2>{article.title}</h2>
+              <p>{article.excerpt}</p>
+            </div>
+            <div class="article-meta">
+              <span class="article-date">{article.date}</span>
+              <span class="article-arrow">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .writing h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  .intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .article-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .article-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    text-decoration: none;
+  }
+
+  .article-content {
+    flex: 1;
+  }
+
+  .article-item h2 {
+    margin-bottom: var(--space-xs);
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .article-item:hover h2 {
+    color: var(--color-accent);
+  }
+
+  .article-item p {
+    color: var(--color-text-light);
+    margin-bottom: 0;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding-left: var(--space-md);
+  }
+
+  .article-date {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+
+  .article-arrow {
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    transition: transform 0.2s ease;
+  }
+
+  .article-item:hover .article-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .article-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .article-meta {
+      width: 100%;
+      justify-content: space-between;
+      padding-left: 0;
+    }
+  }
+</style>

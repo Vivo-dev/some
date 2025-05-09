@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - adam dhalla">
+  <section class="section about">
+    <div class="container">
+      <h1>About</h1>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            I'm a just a techie who's working on his startup(<a href="" target="_blank">Obliq</a> & <a href="" target="_blank">ravenEye</a>) and trying to learn as much as he can.
+          </p>
+          <p>
+            Driven by a fascination with the intersections of diverse fields, I explore the connections between technology, philosophy, art, cinema, science, and more. This blog is a reflection of my ongoing journey to learn, create, and share my discoveries.
+          </p>
+          <p>
+            You can also follow my <a href="/newsletter.html">newsletter</a> for updates on my explorations.
+          </p>
+          <p>
+            You can also follow my <a href="https://x.com/archf1end1" target="_blank">twitter/x</a>. View my code on <a href="https://github.com/archf1end1" target="_blank">github</a>.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="https://i.pinimg.com/736x/45/db/24/45db2406e2e2d777a4a358a926c32b73.jpg" alt="Adam Dhalla's profile picture" />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about h1 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .about-text p {
+    margin-bottom: var(--space-md);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .about-image {
+    position: sticky;
+    top: var(--space-lg);
+  }
+
+  .about-image img {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 900px) {
+    .about-content {
+      grid-template-columns: 1fr;
+    }
+
+    .about-image {
+      position: static;
+      margin-bottom: var(--space-md);
+      grid-row: 1;
+    }
+  }
+</style>

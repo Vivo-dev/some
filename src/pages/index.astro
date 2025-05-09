@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Ventures into the Vast: Art, Science, and the Allure of the Unknown.</h1>
+        <div class="cta-buttons">
+          <a href="/about.html" class="btn">Get to know me</a>
+          <a href="/newsletter.html" class="btn btn-primary">Follow my newsletter</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/David_-_The_Death_of_Socrates.jpg/2560px-David_-_The_Death_of_Socrates.jpg" alt="Stylized owl illustration" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section featured">
+    <div class="container">
+      <h2>Featured Articles</h2>
+      <div class="article-grid">
+        <a href="/writing/ai-learning-genetics" class="card article-card">
+          <h3>How AI Can Learn from Genetics</h3>
+          <p>Exploring the parallels between machine learning algorithms and genetic evolution.</p>
+          <span class="read-more">Read more →</span>
+        </a>
+        <a href="/writing/cinema-philosophy" class="card article-card">
+          <h3>Cinema as Philosophy</h3>
+          <p>How films can serve as philosophical thought experiments and convey complex ideas.</p>
+          <span class="read-more">Read more →</span>
+        </a>
+        <a href="/writing/future-technology" class="card article-card">
+          <h3>The Future of Technology</h3>
+          <p>Exploring emerging technologies and their potential impact on society.</p>
+          <span class="read-more">Read more →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding: var(--space-xl) 0;
+  }
+
+  .hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 2.75rem;
+    margin-bottom: var(--space-lg);
+    line-height: 1.2;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .featured h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .article-card h3 {
+    margin-bottom: var(--space-xs);
+  }
+
+  .article-card p {
+    color: var(--color-text-light);
+    flex-grow: 1;
+  }
+
+  .read-more {
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-top: var(--space-sm);
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+
+  .article-card:hover .read-more {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 900px) {
+    .hero .container {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+      order: -1;
+    }
+
+    .hero h1 {
+      font-size: 2.25rem;
+      margin-bottom: var(--space-md);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cta-buttons {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
