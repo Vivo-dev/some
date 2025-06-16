@@ -23,7 +23,7 @@ const articles = [
       
       <div class="articles-list">
         {articles.map((article) => (
-          <a href={`/writing/${article.slug}`} class="article-item">
+          <a href={`${article.slug}`} class="article-item">
             <div class="article-content">
               <h2>{article.title}</h2>
               <p>{article.excerpt}</p>
