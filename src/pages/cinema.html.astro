@@ -554,7 +554,7 @@ const films = [
       
       <div class="films-grid">
         {films.map((film) => (
-          <a href={`/cinema/${film.slug}.html`} class="film-card">
+          <div class="film-card">
             <div class="film-poster">
               <img src={film.poster} alt={`${film.title} poster`} />
             </div>
@@ -562,7 +562,7 @@ const films = [
               <h3>{film.title}</h3>
               <p class="film-meta">{film.director}, {film.year}</p>
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </div>
