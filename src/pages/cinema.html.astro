@@ -554,7 +554,7 @@ const films = [
       
       <div class="films-grid">
         {films.map((film) => (
-          < class="film-card">
+          <a href={`/cinema/${film.slug}.html`} class="film-card">
             <div class="film-poster">
               <img src={film.poster} alt={`${film.title} poster`} />
             </div>
